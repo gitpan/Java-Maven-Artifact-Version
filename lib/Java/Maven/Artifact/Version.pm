@@ -1,6 +1,6 @@
 package Java::Maven::Artifact::Version;
 
-use 5.006;
+use 5.008008;
 use strict;
 use warnings FATAL => 'all';
 use Exporter;
@@ -15,13 +15,13 @@ Java::Maven::Artifact::Version - a perl module for comparing Artifact versions e
 
 =head1 VERSION
 
-Version 1.00
+Version 1.000001
 
 see L</MAVEN VERSION COMPATIBILITY>.
 
 =cut
 
-our $VERSION = '1.00';
+our $VERSION = '1.000001';
 
 =head1 SYNOPSIS
 
@@ -33,7 +33,7 @@ Note that this documentation is intended as a reference to the module.
     my $x = version_compare('1.0', '1-0.alpha'); # $x = 0
 
     my $z = version_parse('1-1.2-alpha'); # $z = '(1,(1,2,alpha))' 
-    my @l = version_parse('1-1.2-alpha'); # [1,[1,2,'alpha']]
+    my @l = version_parse('1-1.2-alpha'); # @l = (1,[1,2,'alpha'])
 
 =head1 DESCRIPTION
 
@@ -74,12 +74,6 @@ use constant {
 # example : '-1..1' -> '0.1.0.1'
 sub _append_zero {
   join '.',  map { $_ eq '' ? '0' : $_  } split /\-|\./, shift;
-}
-
-sub _check_comparison_settings {
-  my ($settings) = @_;
-  croak("'version' mandatory parameter is missing") if not exists $settings->{version};
-  carp("'max_depth' should be >= 0") if (exists $settings->{max_depth} && $settings->{max_depth} <= 0);
 }
 
 sub _compare_integeritem_to {
@@ -186,18 +180,6 @@ sub _compare_stringitem_to_stringitem {
   my ($stringitem1, $stringitem2, $depth) = @_;
   $$depth++;
   _substitute_to_qualifier($stringitem1) cmp _substitute_to_qualifier($stringitem2);
-}
-
-sub _compare_to_mvn_version {
-  my ($this, $another_version, $max_depth) = @_;
-  die("parameter is not a Java::Maven::Artifact::Version") unless ($another_version->isa('Java::Maven::Artifact::Version')); 
-  my $depth = 0;
-  _compare_listitems($this->{items}, $another_version->{items}, $max_depth, \$depth);
-}
-
-sub _get_version {
-  my ($version) = @_;
-  ref($version) eq 'Java::Maven::Artifact::Version' ? $version : Java::Maven::Artifact::Version->new(version => $version);
 }
 
 sub _getref {
@@ -518,7 +500,15 @@ Comparing C<listitem> with C<nullitem> will just compare first C<item> of the C<
 
 =head1 MAVEN VERSION COMPATIBILITY
 
-This version is fully compatible with the C<org.apache.maven.artifact.versioning.ComparableVersion.java> algo of C<org.apache.maven:maven-artifact:3.2.2> embedded with Maven 3.2.2
+This version is fully compatible with the C<org.apache.maven.artifact.versioning.ComparableVersion.java> algo of C<org.apache.maven:maven-artifact> embedded with : 
+
+=over 4
+
+=item * Maven 3.2.3
+
+=item * Maven 3.2.2
+
+=back
 
 All L<Test::More|http://search.cpan.org/~exodist/Test-Simple-1.001003/lib/Test/More.pm> tests are also available with Java Junit tests to ensure comparison results are similars.
 

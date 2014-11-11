@@ -3,10 +3,10 @@
    "author" : [
       "Thomas Cazali <pandragon@cpan.org>"
    ],
-   "dynamic_config" : 1,
+   "dynamic_config" : 0,
    "generated_by" : "ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.141520",
    "license" : [
-      "unknown"
+      "artistic_2"
    ],
    "meta-spec" : {
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
@@ -34,20 +34,25 @@
          "requires" : {
             "Carp" : "0",
             "Scalar::Util" : "0",
-            "perl" : "5.006"
+            "perl" : "5.008008"
          }
       }
    },
    "release_status" : "stable",
    "resources" : {
-      "x_type" : "git",
-      "x_url" : "git@github.com:apendragon/Java-Maven-Artifact-Version.git",
-      "x_web" : "https://github.com/apendragon/Java-Maven-Artifact-Version.git"
+      "bugtracker" : {
+         "mailto" : "pandragon@cpan.org",
+         "web" : "https://github.com/apendragon/Java-Maven-Artifact-Version/issues"
+      },
+      "homepage" : "https://github.com/apendragon/Java-Maven-Artifact-Version/wiki",
+      "license" : [
+         "https://github.com/apendragon/Java-Maven-Artifact-Version/blob/master/LICENSE"
+      ],
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/apendragon/Java-Maven-Artifact-Version.git",
+         "web" : "https://github.com/apendragon/Java-Maven-Artifact-Version.git"
+      }
    },
-   "version" : "1.00",
-   "x_bugtracker" : {
-      "mailto" : "pandragon@cpan.org",
-      "web" : "https://github.com/apendragon/Java-Maven-Artifact-Version/issues"
-   },
-   "x_homepage" : "https://github.com/apendragon/Java-Maven-Artifact-Version/wiki"
+   "version" : "1.000001"
 }

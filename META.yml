@@ -6,9 +6,9 @@ build_requires:
   Test::More: '0'
 configure_requires:
   ExtUtils::MakeMaker: '0'
-dynamic_config: 1
+dynamic_config: 0
 generated_by: 'ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.141520'
-license: unknown
+license: artistic_2
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: '1.4'
@@ -20,13 +20,10 @@ no_index:
 requires:
   Carp: '0'
   Scalar::Util: '0'
-  perl: '5.006'
+  perl: '5.008008'
 resources:
-  Type: git
-  Url: git@github.com:apendragon/Java-Maven-Artifact-Version.git
-  Web: https://github.com/apendragon/Java-Maven-Artifact-Version.git
-version: '1.00'
-x_bugtracker:
-  mailto: pandragon@cpan.org
-  web: https://github.com/apendragon/Java-Maven-Artifact-Version/issues
-x_homepage: https://github.com/apendragon/Java-Maven-Artifact-Version/wiki
+  bugtracker: https://github.com/apendragon/Java-Maven-Artifact-Version/issues
+  homepage: https://github.com/apendragon/Java-Maven-Artifact-Version/wiki
+  license: https://github.com/apendragon/Java-Maven-Artifact-Version/blob/master/LICENSE
+  repository: git://github.com/apendragon/Java-Maven-Artifact-Version.git
+version: '1.000001'
